@@ -283,7 +283,7 @@ namespace UnityEditor.U2D.PSD
             {
                 ScriptableObject pipeline = m_Pipeline;
                 if(pipeline == null)
-                    pipeline = AssetDatabase.LoadAssetAtPath<ScriptableObject>("Packages/com.unity.2d.psdimporter/Editor/Pipeline.asset");
+                    pipeline = AssetDatabase.LoadAssetAtPath<ScriptableObject>("Assets/Packages/com.unity.2d.psdimporter/Editor/Pipeline.asset");
 
                 var args = new object[] { buffers, width, height, padding, spriteSizeExpand, null, 0, 0, null, null, requireSquarePOT };
                 pipeline.GetType().InvokeMember("PackImage", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.InvokeMethod | BindingFlags.Static, null,

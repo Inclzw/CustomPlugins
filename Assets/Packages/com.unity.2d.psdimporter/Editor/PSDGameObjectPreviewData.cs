@@ -32,7 +32,7 @@ namespace UnityEditor.U2D.PSD
             m_PreviewObject.transform.parent = m_Root.transform;
             var renderableBounds = GetRenderableBounds(m_PreviewObject);
             var axisScale = Math.Max(renderableBounds.extents.x, m_RenderableBounds.extents.y) * 0.5f;
-            GameObject pivotGO = AssetDatabase.LoadAssetAtPath<GameObject>("Packages/com.unity.2d.psdimporter/Editor/Assets/pivot.fbx");
+            GameObject pivotGO = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Packages/com.unity.2d.psdimporter/Editor/Assets/pivot.fbx");
             m_PivotInstance = GameObject.Instantiate(pivotGO, Vector3.zero, Quaternion.identity);
             m_PivotInstance.transform.localScale = new Vector3(axisScale, axisScale, axisScale);
             m_PivotInstance.transform.parent = m_Root.transform;

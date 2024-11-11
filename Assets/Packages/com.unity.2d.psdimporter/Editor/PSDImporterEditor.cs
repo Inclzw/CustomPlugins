@@ -415,7 +415,7 @@ namespace UnityEditor.U2D.PSD
         /// <returns>VisualElement container for Inspector visual.</returns>
         public override VisualElement CreateInspectorGUI()
         {
-            var styleSheet = EditorGUIUtility.Load("packages/com.unity.2d.psdimporter/Editor/Assets/UI/PSDImporterStylesheet.uss") as StyleSheet;
+            var styleSheet = EditorGUIUtility.Load("Assets/packages/com.unity.2d.psdimporter/Editor/Assets/UI/PSDImporterStylesheet.uss") as StyleSheet;
             m_RootVisualElement = new VisualElement()
             {
                 name = "Root"
