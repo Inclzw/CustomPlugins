@@ -78,6 +78,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item
         public event ItemViewSlotEventHandler OnItemViewSlotSelected;
         public event ItemViewSlotEventHandler OnItemViewSlotDeselected;
         public event ItemViewSlotEventHandler OnItemViewSlotClicked;
+        public event ItemViewSlotRotateEventHandler OnItemViewSlotRotated;
         public event ItemViewSlotPointerEventHandler OnItemViewSlotPointerDownE;
         public event ItemViewSlotPointerEventHandler OnItemViewSlotBeginDragE;
         public event ItemViewSlotPointerEventHandler OnItemViewSlotEndDragE;
@@ -273,6 +274,12 @@ namespace Opsive.UltimateInventorySystem.UI.Item
                     m_ItemViewSlotDropEventData.SetValues(this, localIndex);
                     m_ItemViewSlotDropEventData.PointerEventData = pointerEventData;
                     OnItemViewSlotDropE?.Invoke(m_ItemViewSlotDropEventData);
+                };
+                itemViewSlot.OnRotateE += rotateEventData =>
+                {
+                    m_SelectedSlot = GetItemViewSlot(localIndex);
+                    rotateEventData.SetValues(this, localIndex);
+                    OnItemViewSlotRotated?.Invoke(rotateEventData);
                 };
             }
 

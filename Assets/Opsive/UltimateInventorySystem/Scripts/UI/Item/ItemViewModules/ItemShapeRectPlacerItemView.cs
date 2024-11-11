@@ -64,11 +64,12 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
                 return;
             }
 
-            if (info.Item.TryGetAttributeValue<ItemShape>(m_ItemShapeItemView.ShapeAttributeName, out var itemShape) == false) {
+            if (info.Item.ItemShape == null) {
                 PlaceWithUnitOffset(new Vector2Int(0, 0));
                 return;
             }
 
+            var itemShape = info.Item.ItemShape;
             if (m_PlaceOnAnchor) {
                 PlaceWithUnitOffset(itemShape.Anchor);
                 return;

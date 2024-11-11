@@ -11,8 +11,10 @@ namespace Opsive.UltimateInventorySystem.Core
     using Opsive.Shared.Inventory;
     using Opsive.Shared.Utility;
     using Opsive.UltimateInventorySystem.Core.AttributeSystem;
+    using Opsive.UltimateInventorySystem.Core.DataStructures;
     using Opsive.UltimateInventorySystem.Core.InventoryCollections;
     using Opsive.UltimateInventorySystem.Utility;
+    using Opsive.UltimateInventorySystem.UI.Item;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -43,6 +45,8 @@ namespace Opsive.UltimateInventorySystem.Core
         [System.NonSerialized] protected ResizableArray<ItemObject> m_ItemObjects;
         [Tooltip("This is true only after the Item is initialized.")]
         [System.NonSerialized] [HideInInspector] protected bool m_Initialized = false;
+        [System.NonSerialized] [HideInInspector] protected ItemShapeInfo m_ItemShape;
+        [System.NonSerialized] [HideInInspector] protected ItemShapeInfo m_PreviewItemShape;
 
         public uint ID {
             get => m_ID;
@@ -75,6 +79,9 @@ namespace Opsive.UltimateInventorySystem.Core
         public bool IsUnique => m_ItemDefinition == null || m_ItemDefinition.IsUnique;
 
         internal ItemAttributeCollection ItemAttributeCollection => m_ItemAttributeCollection;
+
+        public ItemShapeInfo ItemShape => m_ItemShape;
+        public ItemShapeInfo PreviewItemShape => m_PreviewItemShape;
 
         #region Static functions
 
@@ -411,10 +418,25 @@ namespace Opsive.UltimateInventorySystem.Core
             return category.InherentlyContains(this);
         }
 
+        public void SetItemShape(ItemShape itemShape, uint id)
+        {
+            m_ItemShape = new ItemShapeInfo(itemShape, id);
+        }
+        
         #endregion
 
         #region ItemChanges
 
+        public void SetPreviewItemShape(ItemShapeInfo itemShape)
+        {
+            m_PreviewItemShape = itemShape;
+        }
+
+        public void RemovePreviewItemShape()
+        {
+            m_PreviewItemShape = null;
+        }
+        
         /// <summary>
         /// Used by an itemCollection, this allows the item to know where it belongs to.
         /// Note that immutable items can be part of many itemCollections.

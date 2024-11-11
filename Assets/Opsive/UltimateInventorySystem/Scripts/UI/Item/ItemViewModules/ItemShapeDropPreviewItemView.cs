@@ -121,8 +121,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
             var sourceItemInfo = dropHandler.SourceItemInfo;
 
             if (sourceItemInfo.Item == null ||
-                sourceItemInfo.Item.TryGetAttributeValue<ItemShape>(ItemShapeGridData.ShapeAttributeName, out var itemShape) == false
-                || itemShape.Count <= 1) {
+                sourceItemInfo.Item.ItemShape == null
+                || sourceItemInfo.Item.ItemShape.Count <= 1) {
 
                 // Item takes a 1x1 shape.
                 m_ColorFilter.color = color;
@@ -130,6 +130,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
                 return;
             }
 
+            var previewItemShape = sourceItemInfo.Item.PreviewItemShape;
+            var itemShape = previewItemShape is { Initialized: true } ? previewItemShape : sourceItemInfo.Item.ItemShape;
             var destinationAnchorPos = ItemShapeGridUtility.GetDestinationAnchorPos(dropHandler);
 
             for (int row = 0; row < itemShape.Rows; row++) {

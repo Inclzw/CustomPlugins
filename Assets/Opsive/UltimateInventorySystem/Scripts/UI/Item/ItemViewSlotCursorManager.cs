@@ -4,6 +4,8 @@
 /// https://www.opsive.com
 /// ---------------------------------------------
 
+using Opsive.UltimateInventorySystem.UI.Item.DragAndDrop;
+
 namespace Opsive.UltimateInventorySystem.UI.Item
 {
     using Opsive.Shared.Events;
@@ -40,6 +42,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item
         protected bool m_UsingDrag = false;
 
         protected ItemViewSlotEventData m_SourceSlotEventData;
+        protected ItemShapeInfo m_SourceItemShape;
 
         public uint ID => m_ID;
 
@@ -56,6 +59,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item
         }
 
         public ItemViewSlotEventData SourceSlotEventData => m_SourceSlotEventData;
+        public ItemShapeInfo SourceItemShape => m_SourceItemShape;
         
         public Canvas Canvas {
             get => m_Canvas;
@@ -279,6 +283,28 @@ namespace Opsive.UltimateInventorySystem.UI.Item
             }
         }
 
+        public void SetRotation(bool isClockwise)
+        {
+            m_SourceItemShape ??= new ItemShapeInfo();
+            if (m_FloatingItemView == null)
+            {
+                return;
+            }
+
+            if (m_SourceItemShape.ID != m_FloatingItemView.ItemInfo.Item.ID)
+            {
+                m_SourceItemShape.Clone(m_FloatingItemView.ItemInfo.Item.ItemShape);
+            }
+
+            m_FloatingItemView.ItemInfo.Item.SetPreviewItemShape(m_SourceItemShape);
+            m_SourceItemShape.RotateShape(isClockwise);
+        }
+
+        public void Refresh()
+        {
+            m_FloatingItemView.Refresh();
+        }
+        
         /// <summary>
         /// Before dropping the item.
         /// </summary>
@@ -302,6 +328,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item
             m_SourceSlotEventData = null;
 
             if (m_FloatingItemView != null) {
+                m_SourceItemShape?.Reset();
+                m_FloatingItemView.ItemInfo.Item.RemovePreviewItemShape();
                 ObjectPool.Destroy(m_FloatingItemView.gameObject);
                 m_FloatingItemView = null;
             }

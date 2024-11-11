@@ -87,15 +87,17 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
         protected virtual void UpdateFilter(ItemInfo itemInfo, Vector2Int itemPosition, Color color, bool enableFilter)
         {
             if (itemInfo.Item == null || ItemShapeGridData == null ||
-                itemInfo.Item.TryGetAttributeValue<ItemShape>(ItemShapeGridData.ShapeAttributeName, out var itemShape) == false
-                || itemShape.Count <= 1) {
-
+                itemInfo.Item.ItemShape == null
+                || itemInfo.Item.ItemShape.Count <= 1)
+            {
                 // Item takes a 1x1 shape.
                 m_ColorFilter.color = color;
                 m_ColorFilter.enabled = enableFilter;
                 return;
             }
 
+            var itemShape = itemInfo.Item.ItemShape;
+            itemPosition -= itemShape.Anchor;
             for (int row = 0; row < itemShape.Rows; row++) {
                 for (int col = 0; col < itemShape.Cols; col++) {
 

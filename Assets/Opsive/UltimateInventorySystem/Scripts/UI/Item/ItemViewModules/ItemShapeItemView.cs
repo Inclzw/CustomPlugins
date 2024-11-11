@@ -10,6 +10,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
     using Opsive.UltimateInventorySystem.UI.Grid;
     using Opsive.UltimateInventorySystem.UI.Views;
     using System;
+    using System.Collections;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -44,6 +45,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
         [SerializeField] protected Color m_SelectableColor = Color.white;
         [Tooltip("The color when the item cannot be selected.")]
         [SerializeField] protected Color m_UnselectableColor = new Color(0.8f, 0.8f, 0.8f, 0.3f);
+        [Tooltip("The duration of the rotation animation in seconds.")]
+        [SerializeField] protected float m_RotateDuration = 0.15f;
 
         protected bool m_IsItemSelectable;
 
@@ -51,6 +54,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
         protected ItemShapeGrid m_ItemShapeGrid;
         protected int m_Index;
         protected bool m_Foreground;
+        protected Coroutine m_RotationCoroutine;
 
         public Image Icon => m_Icon;
 
@@ -149,6 +153,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
             m_Icon.sprite = iconToSet;
 
             ResizeToItemShape(info);
+            SetRotation();
         }
 
         /// <summary>
@@ -161,6 +166,71 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
             ResizeToItemShape(ItemInfo.None);
         }
 
+        public void SetRotation()
+        {
+            var itemShape = ItemInfo.Item.PreviewItemShape ?? ItemInfo.Item.ItemShape;
+            var rotation = itemShape.ItemRotation;
+            var targetAngle = 0f;
+            var changeSize = rotation is ItemRotation.Ninety or ItemRotation.MinusNinety;
+
+            switch (rotation)
+            {
+                case ItemRotation.Ninety:
+                    targetAngle = -90f;
+                    break;
+                case ItemRotation.OneEighty:
+                    targetAngle = 180f;
+                    break;
+                case ItemRotation.MinusNinety:
+                    targetAngle = 90f;
+                    break;
+            }
+
+            var rectTransform = (RectTransform)m_Icon.transform;
+            var parentRect = (RectTransform)rectTransform.parent;
+            rectTransform.anchorMin = Vector2.one * 0.5f;
+            rectTransform.anchorMax = Vector2.one * 0.5f;
+
+            if (ItemInfo.Item.PreviewItemShape != null)
+            {
+                if (m_RotationCoroutine != null)
+                {
+                    StopCoroutine(m_RotationCoroutine);
+                }
+
+                m_RotationCoroutine = StartCoroutine(RotateToAngle(rectTransform, targetAngle));
+            }
+            else
+            {
+                if (m_RotationCoroutine != null)
+                {
+                    StopCoroutine(m_RotationCoroutine);
+                    m_RotationCoroutine = null;
+                }
+
+                rectTransform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
+                rectTransform.sizeDelta = changeSize
+                    ? new Vector2(parentRect.rect.height, parentRect.rect.width)
+                    : new Vector2(parentRect.rect.width, parentRect.rect.height);
+            }
+        }
+
+        private IEnumerator RotateToAngle(RectTransform rectTransform, float targetAngle)
+        {
+            var startAngle = rectTransform.rotation.eulerAngles.z;
+            var elapsedTime = 0f;
+            while (elapsedTime < m_RotateDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                var angle = Mathf.LerpAngle(startAngle, targetAngle, elapsedTime / m_RotateDuration);
+                rectTransform.rotation = Quaternion.Euler(0f, 0f, angle);
+                yield return null;
+            }
+
+            rectTransform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
+            m_RotationCoroutine = null;
+        }
+        
         /// <summary>
         /// Set the color of the icon to show if it is selectable.
         /// </summary>
@@ -180,14 +250,15 @@ namespace Opsive.UltimateInventorySystem.UI.Item.ItemViewModules
             //Debug.Log("About to resize item "+info);
             m_CellResizableContent.sizeDelta = CellSize;
 
-            if (info.Item == null || info.Item.TryGetAttributeValue<ItemShape>(m_ShapeAttributeName, out var itemShape) == false) {
+            if (info.Item == null || info.Item.ItemShape == null) {
                 m_ShapeResizableContent.anchoredPosition = Vector2.zero;
                 m_ShapeResizableContent.sizeDelta = CellSize;
                 return;
             }
 
             //Debug.Log(info+" size: "+itemShape.Size);
-
+            var previewItemShape = info.Item.PreviewItemShape;
+            var itemShape = previewItemShape is { Initialized: true } ? previewItemShape : info.Item.ItemShape;
             m_ShapeResizableContent.anchoredPosition = new Vector2(
                 -itemShape.Anchor.x * CellSize.x,
                 itemShape.Anchor.y * CellSize.y);

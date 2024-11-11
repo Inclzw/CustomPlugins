@@ -19,7 +19,7 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
     /// <summary>
     /// A action button class, used when the default Button is not flexible enough.
     /// </summary>
-    public class ActionButton : Selectable, IPointerClickHandler, ISubmitHandler, ICancelHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+    public partial class ActionButton : Selectable, IPointerClickHandler, ISubmitHandler, ICancelHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
     {
         [Flags]
         [Serializable]

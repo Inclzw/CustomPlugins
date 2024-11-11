@@ -295,16 +295,17 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
         /// <returns>True if the item was added.</returns>
         public virtual bool TryPlaceItemToPosition(ItemInfo info, Vector2Int position)
         {
-            //Debug.Log($"Try Add: {position} + {info}");
+            // Debug.Log($"Try Add: {position} + {info}");
             var x = position.x;
             var y = position.y;
 
             if (info.Item == null) {
                 return false;
             }
-            
-            if (info.Item.TryGetAttributeValue<ItemShape>(ShapeAttributeName, out var shape) == false
-                || shape.Count <= 1) {
+
+            var previewItemShape = info.Item.PreviewItemShape;
+            var shape = previewItemShape is { Initialized: true } ? previewItemShape : info.Item.ItemShape;
+            if (shape is not { Count: > 1 }) {
 
                 // Item takes a 1x1 shape.
                 if (m_ItemStackAnchorGrid[x, y].IsOccupied) {
@@ -451,11 +452,13 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
         /// <returns>True if the position is available.</returns>
         public virtual bool IsPositionAvailable(ItemInfo info, Vector2Int position, Func<Vector2Int, bool> canIgnore = null)
         {
+            // Debug.Log("IsPositionAvailable");
             var x = position.x;
             var y = position.y;
 
-            if (info.Item.TryGetAttributeValue<ItemShape>(ShapeAttributeName, out var shape) == false
-                || shape.Count <= 1) {
+            var previewItemShape = info.Item.PreviewItemShape;
+            var shape = previewItemShape is { Initialized: true } ? previewItemShape : info.Item.ItemShape;
+            if (shape is not { Count: > 1 }) {
                 // Item takes a 1x1 shape.
                 return IsSingularPositionAvailable(info, position, canIgnore);
             }
@@ -517,8 +520,8 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
         /// <returns>True if the position is available.</returns>
         public bool IsPositionAvailable(ItemInfo info, int x, int y, ListSlice<ItemStack> itemStacksToIgnore)
         {
-            if (info.Item.TryGetAttributeValue<ItemShape>(ShapeAttributeName, out var shape) == false
-                || shape.Count <= 1) {
+            var shape = info.Item.ItemShape;
+            if (shape is not { Count: > 1 }) {
 
                 // Item takes a 1x1 shape.
                 if (m_ItemStackAnchorGrid[x, y].IsOccupied && itemStacksToIgnore.Contains(m_ItemStackAnchorGrid[x, y].ItemStack) == false) {
@@ -563,6 +566,11 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
             var itemInfoAdded = (ItemInfo)itemStackAdded;
             Vector2Int position = new Vector2Int(-1, -1);
 
+            if (itemInfoAdded.Item.TryGetAttributeValue<ItemShape>(ShapeAttributeName, out var shape))
+            {
+                itemInfoAdded.Item.SetItemShape(shape, itemInfoAdded.Item.ID);
+            }
+            
             // First check if the item stack already exists in the grid
             if (TryFindAnchorForItem(itemInfoAdded, out position)) {
                 // The item is already placed in the grid.
@@ -658,6 +666,7 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
         /// <returns>True if an item was removed.</returns>
         public virtual bool RemoveItemFromPosition(Vector2Int position)
         {
+            // Debug.Log("RemoveItemFromPosition");
             var x = position.x;
             var y = position.y;
 
@@ -672,10 +681,10 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
             }
 
             var itemStack = m_ItemStackAnchorGrid[x, y].ItemStack;
-
+            var shape = itemStack.Item.ItemShape;
             if (itemStack?.Item == null
-                || itemStack.Item.TryGetAttributeValue<ItemShape>(ShapeAttributeName, out var shape) == false
-                || shape.Count <= 1) {
+                || itemStack.Item.ItemShape == null
+                || itemStack.Item.ItemShape.Count <= 1) {
 
                 // Item takes a 1x1 shape.
                 m_ItemStackAnchorGrid[x, y] = GridElementData.None;
@@ -854,12 +863,12 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
             TryFindAnchorForItem((ItemInfo)sourceElement.ItemStack, out var sourceAnchor);
             TryFindAnchorForItem((ItemInfo)destinationElement.ItemStack, out var destinationAnchor);
 
-            var sourceOffset = sourceAnchor - sourcePos;
+            // var sourceOffset = sourceAnchor - sourcePos;
             var destinationOffset = destinationAnchor - destinationPos;
 
             var sourcePosWithOffset = sourcePos + destinationOffset;
-            var destinationPosWithOffset = destinationPos + sourceOffset;
-
+            // var destinationPosWithOffset = destinationPos + sourceOffset;
+            var destinationPosWithOffset = destinationPos;
             // Remove source item.
             if (RemoveItemFromPosition(sourceAnchor) == false) {
                 Debug.LogError("Nothing should be preventing it to be removed");

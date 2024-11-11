@@ -99,4 +99,29 @@ namespace Opsive.UltimateInventorySystem.UI.Item
             PointerEventData = null;
         }
     }
+
+    public delegate void ItemViewSlotRotateEventHandler(ItemViewSlotRotateEventData eventData);
+
+    public class ItemViewSlotRotateEventData : ItemViewSlotEventData
+    {
+        /// <summary>
+        /// RotateDirection for this event.
+        /// </summary>
+        public RotateDirection RotateDir { get; set; }
+    }
+
+    public enum RotateDirection
+    {
+        None,
+
+        /// <summary>
+        /// 顺时针
+        /// </summary>
+        Clockwise,
+
+        /// <summary>
+        /// 逆时针
+        /// </summary>
+        CounterClockwise
+    }
 }

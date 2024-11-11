@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e98fc4d-7ae9-4034-9bf4-56528a47dfa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemRotation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemRotation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemShapeInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemShapeInfo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgramTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgramTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemCategories/Key Item.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemCategories/Key Item.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemCategories/Sword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemCategories/Sword.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemDefinitions/Flag.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemDefinitions/Flag.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/DataStructures/ItemInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/InventoryCollections/ItemCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/InventoryCollections/ItemCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemDefinitions/Great Sword.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/DemoInventoryDatabase/ItemDefinitions/Great Sword.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/UI/ItemActionSets/Move Item Actions.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Demo/UI/ItemActionSets/Move Item Actions.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Core/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.Extension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.Extension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Grid/ItemShapeGridData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Grid/ItemShapeGridData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Grid/ItemShapeGridUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Grid/ItemShapeGridUtility.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/DropActions/ItemViewDropMoveIndexAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/DropActions/ItemViewDropMoveIndexAction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/ItemViewDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/ItemViewDropHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/IItemViewSlotsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/IItemViewSlotsContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemShape.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeDropPreviewItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeDropPreviewItemView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeItemView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeRectPlacerItemView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewModules/ItemShapeRectPlacerItemView.cs" afterDir="false" />
@@ -25,8 +29,9 @@
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotCursorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotCursorManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotDragHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotDragHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotsContainerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlotsContainerBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/UltimateInventorySystemExtension/Scripts/EventSystems/EventData/RotateEventData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UltimateInventorySystemExtension/Scripts/EventSystems/EventData/RotateEventData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/UltimateInventorySystemExtension/Scripts/UI/CompoundElements/EnhancedActionButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UltimateInventorySystemExtension/Scripts/UI/CompoundElements/EnhancedActionButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/UIDesignerSchemas/ClassicSchema/Item View Slot Drop Action Set.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/UIDesignerSchemas/ClassicSchema/Item View Slot Drop Action Set.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,21 +48,24 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1af15fffed8d4d73ab9b22e5e2a1976d7c00/8b/f729d279/Input.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/38/e9fd416a/IEquatable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b7/3949fe32/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5be52286c54c47958ace04af739114055200/73/42922d02/ObjectPoolBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5be52286c54c47958ace04af739114055200/92/ac97bf5d/SchedulerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93ebc5f5220d40269f586c1e16fdad33d000/3b/68d4196e/Serialization.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9877eb58f6f144c884d75b42e9bdd11655e400/4f/069a4372/CloudOrganizationHelpActionsResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c46bac3c87154104bfaa08364df85ce61000/8b/d708ab87/IItemIdentifier.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/25/27e74f3a/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/74/dc46cadc/RectTransform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/a8/aded8f7c/UnitySynchronizationContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/b2/46de1597/Transform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d8/cea7bef0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d9/fdd6a764/Vector2Int.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Editor/Tools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/InventoryInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/Input/InventoryActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/ItemViewSlotDropHandlerBinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/TabToggle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Packages/UltimateInventorySystemExtension/Scripts/InventoryActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.10/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
@@ -82,22 +90,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.04290429",
-    "git-widget-placeholder": "devlop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.026998961&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;devlop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Program Files\Unity 2022.3.22f1\Editor\Unity.exe" />
@@ -125,10 +133,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7628">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="7628" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -151,7 +159,12 @@
       <workItem from="1731043542482" duration="18877000" />
       <workItem from="1731121994054" duration="36733000" />
       <workItem from="1731207388053" duration="18679000" />
-      <workItem from="1731226709691" duration="11311000" />
+      <workItem from="1731226709691" duration="12779000" />
+      <workItem from="1731239767153" duration="17600000" />
+      <workItem from="1731298301863" duration="10225000" />
+      <workItem from="1731310832553" duration="2688000" />
+      <workItem from="1731313679391" duration="12696000" />
+      <workItem from="1731326825819" duration="3775000" />
     </task>
     <servers />
   </component>
@@ -182,26 +195,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Grid/ItemShapeGridData.cs</url>
-          <line>697</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Opsive\UltimateInventorySystem\Scripts\UI\Grid\ItemShapeGridData.cs" containingFunctionPresentation="Method 'RemoveItemFromPosition'">
-            <startOffsets>
-              <option value="28254" />
-            </startOffsets>
-            <endOffsets>
-              <option value="28351" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Opsive.UltimateInventorySystem.Core.Item" memberName="ItemAttributeCollection" />
+        <PinnedItemInfo parentTag="Type#Opsive.UltimateInventorySystem.Core.DataStructures.ItemShapeInfo" memberName="UseCustomShape" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

@@ -21,6 +21,17 @@ namespace Opsive.UltimateInventorySystem.UI.Item.DragAndDrop.DropActions
         public override void Drop(ItemViewDropHandler itemViewDropHandler)
         {
             itemViewDropHandler.SourceContainer.MoveItem(itemViewDropHandler.StreamData.SourceIndex, itemViewDropHandler.StreamData.DestinationIndex);
+            
+            var item = itemViewDropHandler.SourceItemViewSlot.ItemInfo.Item;
+            var previewItemShape = item.PreviewItemShape;
+            if (previewItemShape == null || previewItemShape.ID != item.ID)
+            {
+                return;
+            }
+
+            item.ItemShape.Clone(previewItemShape);
+            item.RemovePreviewItemShape();
+            itemViewDropHandler.SourceItemViewSlot.ItemView.Refresh();
         }
     }
 }

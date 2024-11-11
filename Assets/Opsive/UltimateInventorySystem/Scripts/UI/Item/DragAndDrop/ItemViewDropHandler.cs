@@ -178,6 +178,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item.DragAndDrop
 
                 m_ViewSlotsContainer.OnItemViewSlotSelected += ItemViewSlotSelected;
                 m_ViewSlotsContainer.OnItemViewSlotDeselected += ItemViewSlotDeselected;
+
+                m_ViewSlotsContainer.OnItemViewSlotRotated += ItemViewSlotRotated;
             }
 
             m_StreamData = new ItemViewSlotDropHandlerStreamData();
@@ -314,6 +316,22 @@ namespace Opsive.UltimateInventorySystem.UI.Item.DragAndDrop
                     module.DeselectWith(this);
                 }
             }
+        }
+
+        public virtual void ItemViewSlotRotated(ItemViewSlotEventData slotEventData)
+        {
+            m_DropSlotEventData ??= slotEventData;
+            var itemView = slotEventData.ItemView;
+            if (m_ItemViewSlotCursorManager.IsMovingItemView == false) { return; }
+            
+            itemView.Select(false);
+            for (int i = 0; i < itemView.Modules.Count; i++) {
+                if (itemView.Modules[i] is IItemViewSlotDropHoverSelectable module) {
+                    module.SelectWith(this);
+                }
+            }
+
+            m_ItemViewSlotCursorManager.Refresh();
         }
     }
 }

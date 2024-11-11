@@ -38,6 +38,7 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
         /// <returns>The position of the destination anchor.</returns>
         public static Vector2Int GetDestinationAnchorPos(ItemViewDropHandler dropHandler)
         {
+            // Debug.Log("GetDestinationAnchorPos");
             if (!(dropHandler.DestinationContainer is ItemShapeGrid destinationItemShapeGrid)) {
                 return new Vector2Int(-1, -1);
             }
@@ -47,13 +48,16 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
             var sourceItemInfo = dropHandler.SourceItemInfo;
 
             if (sourceItemInfo.Item == null ||
-                sourceItemInfo.Item.TryGetAttributeValue<ItemShape>(destinationItemShapeGridData.ShapeAttributeName, out var itemShape) == false
-                || itemShape.Count <= 1) {
+                sourceItemInfo.Item.ItemShape == null
+                || sourceItemInfo.Item.ItemShape.Count <= 1) {
 
                 // Item takes a 1x1 shape.
                 return destinationItemShapeGridData.OneDTo2D(dropHandler.DestinationIndex);
             }
 
+            var previewItemShape = sourceItemInfo.Item.PreviewItemShape;
+            var itemShape = previewItemShape is { Initialized: true } ? previewItemShape : sourceItemInfo.Item.ItemShape;
+            // var itemShape = sourceItemInfo.Item.ItemShape;
             var destinationPos = destinationItemShapeGridData.OneDTo2D(dropHandler.DestinationIndex);
 
             Vector2Int sourceAnchorOffset = Vector2Int.zero;
@@ -74,10 +78,11 @@ namespace Opsive.UltimateInventorySystem.UI.Grid
                     return new Vector2Int(-1, -1);
                 }
             }
-
-            return new Vector2Int(
-                sourceAnchorOffset.x + destinationPos.x - itemShape.Anchor.x,
-                sourceAnchorOffset.y + destinationPos.y - itemShape.Anchor.y);
+            
+            return new Vector2Int(destinationPos.x - itemShape.Anchor.x, destinationPos.y - itemShape.Anchor.y);
+            // return new Vector2Int(
+            //     sourceAnchorOffset.x + destinationPos.x - itemShape.Anchor.x,
+            //     sourceAnchorOffset.y + destinationPos.y - itemShape.Anchor.y);
         }
 
     }

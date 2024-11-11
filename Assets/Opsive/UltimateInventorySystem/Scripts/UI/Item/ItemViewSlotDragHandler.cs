@@ -89,6 +89,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item
             m_ViewSlotsContainer.OnItemViewSlotBeginDragE += HandleItemViewSlotBeginDrag;
             m_ViewSlotsContainer.OnItemViewSlotEndDragE += ItemViewSlotEndDrag;
             m_ViewSlotsContainer.OnItemViewSlotDragE += HandleItemViewSlotDrag;
+            m_ViewSlotsContainer.OnItemViewSlotRotated += HandleItemViewSlotRotate;
 
             m_IsInitialized = true;
         }
@@ -173,6 +174,11 @@ namespace Opsive.UltimateInventorySystem.UI.Item
         {
             m_ItemViewSlotCursorManager.DragEnded();
             OnDragEnded?.Invoke(eventData);
+        }
+
+        protected virtual void HandleItemViewSlotRotate(ItemViewSlotRotateEventData eventData)
+        {
+            m_ItemViewSlotCursorManager.SetRotation(eventData.RotateDir == RotateDirection.Clockwise);
         }
     }
 }
