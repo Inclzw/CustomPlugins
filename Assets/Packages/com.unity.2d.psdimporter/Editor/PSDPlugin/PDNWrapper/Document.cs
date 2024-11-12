@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PhotoshopFile;
 
 namespace PDNWrapper
 {
@@ -26,5 +27,6 @@ namespace PDNWrapper
 
         public double DpuX { get; set; }
         public double DpuY { get; set; }
+        public GuideLineInfo GuideLine { get; set; }
     }
 }

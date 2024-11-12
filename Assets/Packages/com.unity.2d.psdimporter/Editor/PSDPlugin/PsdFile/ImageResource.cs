@@ -173,6 +173,9 @@ namespace PhotoshopFile
                 case ResourceID.VersionInfo:
                     resource = new VersionInfo(reader, name);
                     break;
+                case ResourceID.GridGuidesInfo:
+                    resource = new GuideLineInfo(reader, name, dataLength);
+                    break;
                 default:
                     resource = new RawImageResource(reader, signature, resourceId, name, dataLength);
                     break;

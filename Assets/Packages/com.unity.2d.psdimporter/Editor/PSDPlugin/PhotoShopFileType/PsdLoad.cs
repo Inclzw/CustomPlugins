@@ -101,6 +101,7 @@ namespace PaintDotNet.Data.PhotoshopFileType
                 jobHandle.Complete();
             }
             SetPdnResolutionInfo(psdFile, document);
+            document.GuideLine = psdFile.GuideLine;
             psdFile.Cleanup();
             return document;
         }

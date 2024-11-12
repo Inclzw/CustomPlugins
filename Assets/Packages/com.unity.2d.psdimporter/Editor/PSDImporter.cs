@@ -74,7 +74,7 @@ namespace UnityEditor.U2D.PSD
             spriteMeshType = SpriteMeshType.Tight,
             spriteAlignment = (int)SpriteAlignment.Center,
             spritePivot = new Vector2(0.5f, 0.5f),
-            spritePixelsPerUnit = 100.0f,
+            spritePixelsPerUnit = 135.0f,
             spriteBorder = new Vector4(0.0f, 0.0f, 0.0f, 0.0f),
 
             alphaSource = TextureImporterAlphaSource.FromInput,
@@ -120,7 +120,7 @@ namespace UnityEditor.U2D.PSD
         [SerializeField]
         bool m_MosaicLayers = true;
         [SerializeField]
-        bool m_CharacterMode = true;
+        bool m_CharacterMode = false;
         [SerializeField]
         Vector2 m_DocumentPivot = Vector2.zero;
         [SerializeField]
@@ -151,7 +151,10 @@ namespace UnityEditor.U2D.PSD
 
         [SerializeField]
         ushort m_SpriteSizeExpand = 0;
-
+        
+        [SerializeField]
+        SpriteImportOrder m_SpriteOrder = SpriteImportOrder.Forward;
+        
         [SerializeField]
         SpriteCategoryList m_SpriteCategoryList = new SpriteCategoryList() {categories = new List<SpriteCategory>()};
         GameObjectCreationFactory m_GameObjectFactory = new GameObjectCreationFactory(null);
@@ -220,6 +223,8 @@ namespace UnityEditor.U2D.PSD
 
         [SerializeField]
         string m_TextureAssetName = null;
+        
+        string m_CommonTexName = null;
 
         [SerializeField]
         string m_PrefabAssetName = null;
@@ -310,6 +315,9 @@ namespace UnityEditor.U2D.PSD
         /// </param>
         public override void OnImportAsset(AssetImportContext ctx)
         {
+            var spPath = ctx.assetPath.Split('/');
+            m_CommonTexName = spPath[^1].Split('.')[0];
+            
             var fileStream = new FileStream(ctx.assetPath, FileMode.Open, FileAccess.Read);
             Document doc = null;
 
@@ -333,7 +341,7 @@ namespace UnityEditor.U2D.PSD
                 importData.documentSize = new Vector2Int(doc.width, doc.height);
                 var singleSpriteMode = m_TextureImporterSettings.textureType == TextureImporterType.Sprite && m_TextureImporterSettings.spriteMode != (int)SpriteImportMode.Multiple;
                 EnsureSingleSpriteExist();
-
+                SetCustomPivotFromGuideLine(doc);
                 TextureGenerationOutput output;
                 if (m_TextureImporterSettings.textureType != TextureImporterType.Sprite ||
                     m_MosaicLayers == false || singleSpriteMode)
@@ -624,6 +632,7 @@ namespace UnityEditor.U2D.PSD
                     packOffsets[i] = new Vector2((uvTransform[i].x - spriteData[i].position.x) / -1f, (uvTransform[i].y - spriteData[i].position.y) / -1f);
 
                 var spriteImportData = GetSpriteImportData();
+                spriteImportData.Clear();
                 if (spriteImportData.Count <= 0 || shouldResliceFromLayer || hasNewLayer)
                 {
                     var newSpriteMeta = new List<SpriteMetaData>();
@@ -649,7 +658,8 @@ namespace UnityEditor.U2D.PSD
                         }
 
                         psdLayer.spriteName = ImportUtilities.GetUniqueSpriteName(psdLayer.name, spriteNameHash, m_KeepDupilcateSpriteName);
-                        spriteSheet.name = psdLayer.spriteName;
+                        // spriteSheet.name = psdLayer.spriteName;
+                        spriteSheet.name = $"{m_CommonTexName}_{i}";
                         spriteSheet.spritePosition = psdLayer.layerPosition + packOffsets[i];
 
                         if(shouldResliceFromLayer)
@@ -711,7 +721,8 @@ namespace UnityEditor.U2D.PSD
                             spriteSheet.pivot = m_TextureImporterSettings.spritePivot;
                             spriteSheet.spritePosition = psdLayers[i].layerPosition;
                             psdLayers[i].spriteName = ImportUtilities.GetUniqueSpriteName(psdLayers[i].name, spriteNameHash, m_KeepDupilcateSpriteName);
-                            spriteSheet.name = psdLayers[i].spriteName;
+                            // spriteSheet.name = psdLayers[i].spriteName;
+                            spriteSheet.name = $"{m_CommonTexName}_{i}";
                         }
                         else if (spriteSheet != null)
                         {
@@ -744,6 +755,18 @@ namespace UnityEditor.U2D.PSD
                 importData.importedTextureHeight = textureActualHeight = height;
                 importData.importedTextureWidth = textureActualWidth = width;
 
+                if (m_SpriteOrder == SpriteImportOrder.Reverse)
+                {
+                    for (var i = 0; i < spriteImportData.Count; i++)
+                    {
+                        var spriteSheet = spriteImportData[i];
+                        var sourceName = spriteSheet.name;
+                        var targetName =
+                            $"{sourceName.Remove(sourceName.Length - 2, 2)}_{spriteImportData.Count - 1 - i}";
+                        spriteSheet.name = targetName;
+                    }
+                }
+                
                 output = ImportTexture(ctx, outputImageBuffer, width, height, spriteImportData.ToArray());
                 if (output.texture)
                 {
@@ -1167,7 +1190,7 @@ namespace UnityEditor.U2D.PSD
             EditorPrefs.SetBool("VerifySavingAssets", originalValue);
         }
 
-        List<SpriteMetaData> GetSpriteImportData()
+        internal List<SpriteMetaData> GetSpriteImportData()
         {
             if (inMosaicMode)
             {

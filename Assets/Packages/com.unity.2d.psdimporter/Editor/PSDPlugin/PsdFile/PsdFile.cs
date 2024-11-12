@@ -293,6 +293,11 @@ namespace PhotoshopFile
             }
         }
 
+        public GuideLineInfo GuideLine
+        {
+            get => (GuideLineInfo)ImageResources.Get(ResourceID.GridGuidesInfo);
+            set => ImageResources.Set(value);
+        }
 
         ///////////////////////////////////////////////////////////////////////////
 

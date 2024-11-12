@@ -34,6 +34,7 @@ namespace UnityEditor.U2D.PSD
         SerializedProperty m_TextureType;
         SerializedProperty m_TextureShape;
         SerializedProperty m_SpriteMode;
+        SerializedProperty m_SpriteOrder;
         SerializedProperty m_SpritePixelsToUnits;
         SerializedProperty m_SpriteMeshType;
         SerializedProperty m_SpriteExtrude;
@@ -135,6 +136,7 @@ namespace UnityEditor.U2D.PSD
             m_TextureShape = textureImporterSettingsSP.FindPropertyRelative("m_TextureShape");
             m_ConvertToNormalMap = textureImporterSettingsSP.FindPropertyRelative("m_ConvertToNormalMap");
             m_SpriteMode = textureImporterSettingsSP.FindPropertyRelative("m_SpriteMode");
+            m_SpriteOrder = serializedObject.FindProperty("m_SpriteOrder");
             m_SpritePixelsToUnits = textureImporterSettingsSP.FindPropertyRelative("m_SpritePixelsToUnits");
             m_SpriteMeshType = textureImporterSettingsSP.FindPropertyRelative("m_SpriteMeshType");
             m_SpriteExtrude = textureImporterSettingsSP.FindPropertyRelative("m_SpriteExtrude");
@@ -877,6 +879,18 @@ namespace UnityEditor.U2D.PSD
                 GUIUtility.keyboardControl = 0;
             }
 
+            EditorGUI.BeginChangeCheck();
+            EditorGUILayout.IntPopup(m_SpriteOrder, styles.spriteOrderOptions, new[] { 1, 2 }, styles.spriteOrder);
+
+            // Ensure that PropertyField focus will be cleared when we change spriteOrder.
+            if (EditorGUI.EndChangeCheck())
+            {
+                GUIUtility.keyboardControl = 0;
+                var importer = (PSDImporter)target;
+                var spriteImportData = importer.GetSpriteImportData();
+                spriteImportData.Clear();
+            }
+            
             // Show generic attributes
             using (new EditorGUI.DisabledScope(m_SpriteMode.intValue == 0))
             {
@@ -1568,6 +1582,12 @@ namespace UnityEditor.U2D.PSD
                 new GUIContent("Single"),
                 new GUIContent("Multiple"),
                 new GUIContent("Polygon"),
+            };
+            public readonly GUIContent spriteOrder = new GUIContent("Sprite Order");
+            public readonly GUIContent[] spriteOrderOptions =
+            {
+                new GUIContent("Forward"),
+                new GUIContent("Reverse"),
             };
             public readonly GUIContent[] spriteMeshTypeOptions =
             {
