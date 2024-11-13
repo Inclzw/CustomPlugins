@@ -29,7 +29,7 @@
             {
                 float cor = reader.ReadUInt32() >> 5; // 读取之后要转成小数，右移5位
                 var lineType = reader.ReadByte();
-                singleGuideList[index] = new SingleGuide()
+                singleGuideList[index] = new SingleGuide
                 {
                     Cor = cor,
                     LineType = lineType

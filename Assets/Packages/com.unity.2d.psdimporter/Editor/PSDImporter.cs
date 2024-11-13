@@ -350,7 +350,7 @@ namespace UnityEditor.U2D.PSD
                 }
                 else
                 {
-                    output = ImportFromLayers(ctx);
+                    output = ImportFromLayers(doc, ctx);
                 }
 
                 if (output.texture != null && output.sprites != null)
@@ -564,7 +564,7 @@ namespace UnityEditor.U2D.PSD
             return output;
         }
 
-        TextureGenerationOutput ImportFromLayers(AssetImportContext ctx)
+        TextureGenerationOutput ImportFromLayers(Document doc, AssetImportContext ctx)
         {
             TextureGenerationOutput output;
             var outputImageBuffer = default(NativeArray<Color32>);
@@ -632,8 +632,9 @@ namespace UnityEditor.U2D.PSD
                     packOffsets[i] = new Vector2((uvTransform[i].x - spriteData[i].position.x) / -1f, (uvTransform[i].y - spriteData[i].position.y) / -1f);
 
                 var spriteImportData = GetSpriteImportData();
-                spriteImportData.Clear();
-                if (spriteImportData.Count <= 0 || shouldResliceFromLayer || hasNewLayer)
+                const bool shouldResetSprite = true;
+                // TODO 优化条件
+                if (spriteImportData.Count <= 0 || shouldResliceFromLayer || hasNewLayer || shouldResetSprite)
                 {
                     var newSpriteMeta = new List<SpriteMetaData>();
 
@@ -645,8 +646,10 @@ namespace UnityEditor.U2D.PSD
                         {
                             spriteSheet = new SpriteMetaData();
                             spriteSheet.border = Vector4.zero;
-                            spriteSheet.alignment = (SpriteAlignment)m_TextureImporterSettings.spriteAlignment;
-                            spriteSheet.pivot = m_TextureImporterSettings.spritePivot;
+                            // spriteSheet.alignment = (SpriteAlignment)m_TextureImporterSettings.spriteAlignment;
+                            // spriteSheet.pivot = m_TextureImporterSettings.spritePivot;
+                            spriteSheet.alignment = SpriteAlignment.Custom;
+                            spriteSheet.pivot = GetCustomPivotFromGuideLine(doc, psdLayer);
                             spriteSheet.rect = new Rect(spriteData[i].x, spriteData[i].y, spriteData[i].width, spriteData[i].height);
                             spriteSheet.spriteID = psdLayer.spriteID;
                         }
@@ -717,8 +720,10 @@ namespace UnityEditor.U2D.PSD
                             spriteImportData.Add(spriteSheet);
                             spriteSheet.rect = new Rect(spriteData[k].x, spriteData[k].y, spriteData[k].width, spriteData[k].height);
                             spriteSheet.border = Vector4.zero;
-                            spriteSheet.alignment = (SpriteAlignment)m_TextureImporterSettings.spriteAlignment;
-                            spriteSheet.pivot = m_TextureImporterSettings.spritePivot;
+                            // spriteSheet.alignment = (SpriteAlignment)m_TextureImporterSettings.spriteAlignment;
+                            // spriteSheet.pivot = m_TextureImporterSettings.spritePivot;
+                            spriteSheet.alignment = SpriteAlignment.Custom;
+                            spriteSheet.pivot = GetCustomPivotFromGuideLine(doc, psdLayers[k]);
                             spriteSheet.spritePosition = psdLayers[i].layerPosition;
                             psdLayers[i].spriteName = ImportUtilities.GetUniqueSpriteName(psdLayers[i].name, spriteNameHash, m_KeepDupilcateSpriteName);
                             // spriteSheet.name = psdLayers[i].spriteName;

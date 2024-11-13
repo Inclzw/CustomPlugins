@@ -49,5 +49,36 @@ namespace UnityEditor.U2D.PSD
             m_TextureImporterSettings.spriteAlignment = (int)SpriteAlignment.Custom;
             m_TextureImporterSettings.spritePivot = new Vector2(pX, pY);
         }
+
+        private Vector2 GetCustomPivotFromGuideLine(Document doc, PSDLayer psdLayer)
+        {
+            var pX = 0.5f;
+            var pY = 0f;
+            var pivot = new Vector2(pX, pY);
+            // TODO 优化大量文件导入时循环判断次数
+            if (doc.GuideLine.AllNum != 2 ||
+                doc.GuideLine.singleGuideList[0].LineType == doc.GuideLine.singleGuideList[1].LineType)
+            {
+                return pivot;
+            }
+
+            foreach (var line in doc.GuideLine.singleGuideList)
+            {
+                switch (line.LineType)
+                {
+                    case 0:
+                        var offsetX = line.Cor - psdLayer.layerPosition.x;
+                        pX = Mathf.Clamp01(offsetX / psdLayer.width);
+                        break;
+                    case 1:
+                        // 参考线由下往上的相对图层底部的Y坐标偏移
+                        var offsetY = doc.height - line.Cor - psdLayer.layerPosition.y;
+                        pY = Mathf.Clamp01(offsetY / psdLayer.height);
+                        break;
+                }
+            }
+
+            return new Vector2(pX, pY);
+        }
     }
 }

@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0e98fc4d-7ae9-4034-9bf4-56528a47dfa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgramTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgramTest/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/CustomPSDImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/CustomPSDImporter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporterEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporterEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PDNWrapper/Document.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PDNWrapper/Document.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PhotoShopFileType/PsdLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PhotoShopFileType/PsdLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/ImageResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/ImageResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/PsdFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/PsdFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/ImageResources/GuideLineInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDPlugin/PsdFile/ImageResources/GuideLineInfo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b9f607e27b8644e0bf609b59dfb1c8525735b0/e6/5fe060a4/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c46bac3c87154104bfaa08364df85ce61000/8b/d708ab87/IItemIdentifier.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/25/27e74f3a/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/5e/6ef83333/Rect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/74/dc46cadc/RectTransform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/a8/aded8f7c/UnitySynchronizationContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/af/307ad873/SpriteAlignment.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,7 +50,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d8/cea7bef0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d9/fdd6a764/Vector2Int.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/f9/3b141617/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Main/Editor/Tools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/CompoundElements/ActionButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/DragAndDrop/ItemViewSlotDropHandlerBinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Opsive/UltimateInventorySystem/Scripts/UI/Item/ItemViewSlot.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,7 +92,7 @@
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.026998961&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;devlop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -167,7 +164,8 @@
       <workItem from="1731332221555" duration="336000" />
       <workItem from="1731332575872" duration="1976000" />
       <workItem from="1731335393009" duration="13895000" />
-      <workItem from="1731390246774" duration="904000" />
+      <workItem from="1731390246774" duration="10546000" />
+      <workItem from="1731491385437" duration="692000" />
     </task>
     <servers />
   </component>
@@ -244,55 +242,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>635</line>
+          <line>636</line>
           <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'ImportFromLayers'">
             <startOffsets>
-              <option value="28445" />
+              <option value="28504" />
             </startOffsets>
             <endOffsets>
-              <option value="28518" />
+              <option value="28598" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>688</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'ImportFromLayers'">
-            <startOffsets>
-              <option value="31368" />
-            </startOffsets>
-            <endOffsets>
-              <option value="31412" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>681</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'ImportFromLayers'">
-            <startOffsets>
-              <option value="31038" />
-            </startOffsets>
-            <endOffsets>
-              <option value="31082" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>757</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'ImportFromLayers'">
-            <startOffsets>
-              <option value="35553" />
-            </startOffsets>
-            <endOffsets>
-              <option value="35600" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporterEditor.cs</url>
@@ -306,32 +265,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>1204</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'GetSpriteImportData'">
-            <startOffsets>
-              <option value="56553" />
-            </startOffsets>
-            <endOffsets>
-              <option value="56585" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Packages/com.unity.2d.psdimporter/Editor/PSDImporter.cs</url>
-          <line>1206</line>
-          <properties documentPath="E:\Dev\UnityProject\ProgramTest\Assets\Packages\com.unity.2d.psdimporter\Editor\PSDImporter.cs" containingFunctionPresentation="Method 'GetSpriteImportData'">
-            <startOffsets>
-              <option value="56612" />
-            </startOffsets>
-            <endOffsets>
-              <option value="56638" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
